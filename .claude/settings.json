@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "d:\\chamith\\Projects\\rent\\rent-business\\src\\app\\(shop)\\products",
+      "d:\\chamith\\Projects\\rent\\rent-business\\src\\app\\(shop)\\orders",
+      "d:\\chamith\\Projects\\rent\\rent-business\\src\\app\\admin\\products\\[id]",
+      "d:\\chamith\\Projects\\rent\\rent-business\\src\\app\\api\\admin\\products",
+      "d:\\chamith\\Projects\\rent\\rent-business\\src\\app\\api\\admin\\orders"
+    ],
+    "allow": [
+      "Bash(npm install *)"
+    ]
+  }
+}
