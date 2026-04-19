@@ -5,12 +5,12 @@ import { z } from "zod";
 import { auth } from "@/lib/auth";
 
 const orderSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().min(1),
   email: z.string().email(),
-  phone: z.string().min(9),
-  address: z.string().min(5),
-  city: z.string().min(2),
-  postalCode: z.string().min(4),
+  phone: z.string().min(1),
+  address: z.string().min(1),
+  city: z.string().min(1),
+  postalCode: z.string().min(1),
   paymentMethod: z.enum(["CARD", "CASH_ON_DELIVERY"]),
   notes: z.string().optional(),
   totalAmount: z.number().positive(),
@@ -20,7 +20,7 @@ const orderSchema = z.object({
       quantity: z.number().int().positive(),
       price: z.number().positive(),
       name: z.string(),
-    })
+    }).passthrough()
   ),
 });
 
@@ -31,7 +31,10 @@ export async function POST(req: NextRequest) {
     const parsed = orderSchema.safeParse(body);
 
     if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid order data" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid order data", details: parsed.error.flatten().fieldErrors },
+        { status: 400 }
+      );
     }
 
     const { name, email, phone, address, city, postalCode, paymentMethod, notes, totalAmount, items } = parsed.data;

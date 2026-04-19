@@ -50,7 +50,7 @@ export default function RegisterPage() {
                 required
                 value={form[field.name as keyof typeof form]}
                 onChange={(e) => setForm((f) => ({ ...f, [field.name]: e.target.value }))}
-                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
           ))}

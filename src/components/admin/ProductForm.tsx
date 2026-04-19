@@ -96,8 +96,12 @@ export default function ProductForm({ categories, product }: { categories: Categ
 
       <Field label="Category" required>
         <select value={form.categoryId} onChange={(e) => setForm((f) => ({ ...f, categoryId: e.target.value }))} required className={inputCls}>
+          <option value="" disabled>— Select a category —</option>
           {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
         </select>
+        {categories.length === 0 && (
+          <p className="mt-1 text-xs text-red-500">No categories yet. <a href="/admin/categories" className="underline">Create one first →</a></p>
+        )}
       </Field>
 
       <Field label="Image URLs (one per line)">
@@ -121,7 +125,7 @@ export default function ProductForm({ categories, product }: { categories: Categ
   );
 }
 
-const inputCls = "w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500";
+const inputCls = "w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500";
 
 function Field({ label, children, required }: { label: string; children: React.ReactNode; required?: boolean }) {
   return (

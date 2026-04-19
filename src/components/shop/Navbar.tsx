@@ -19,10 +19,8 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-            <Link href="/products" className="hover:text-indigo-600 transition-colors">Products</Link>
-            <Link href="/products?category=electronics" className="hover:text-indigo-600 transition-colors">Electronics</Link>
-            <Link href="/products?category=clothing" className="hover:text-indigo-600 transition-colors">Clothing</Link>
-            <Link href="/products?category=home" className="hover:text-indigo-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+            <Link href="/products" className="hover:text-indigo-600 transition-colors">All Products</Link>
           </div>
 
           <div className="flex items-center gap-4">
@@ -46,10 +44,8 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="md:hidden bg-white border-t px-4 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700">
-          <Link href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-          <Link href="/products?category=electronics" onClick={() => setMenuOpen(false)}>Electronics</Link>
-          <Link href="/products?category=clothing" onClick={() => setMenuOpen(false)}>Clothing</Link>
-          <Link href="/products?category=home" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/products" onClick={() => setMenuOpen(false)}>All Products</Link>
         </div>
       )}
     </nav>

@@ -63,6 +63,7 @@ model Category {
   name      String    @unique
   slug      String    @unique
   image     String?
+  isActive  Boolean   @default(true)
   createdAt DateTime  @default(now())
   products  Product[]
 }
